@@ -31,4 +31,21 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		eggGroups: ["Field"],
 	},
+	// O estagio evoluido do SPC Ferrun (spec S7, D5). Quem decide QUANDO a
+	// evolucao acontece e o mundo (`CreatureContent.ConstruirEvolucoes`, em
+	// C#) -- o sim so precisa saber que a especie existe, porque o time
+	// empacotado passa a cita-la depois que o jogador evolui. Nao ha `prevo`
+	// nem `evos` de proposito: seriam uma segunda descricao da mesma regra, e
+	// o D5 poe a regra num dono so.
+	spcferrax: {
+		num: 5002,
+		name: "SPC Ferrax",
+		types: ["Fire", "Dark"],
+		baseStats: { hp: 80, atk: 105, def: 70, spa: 95, spd: 75, spe: 90 },
+		abilities: { 0: "Intimidate", H: "Flash Fire" },
+		heightm: 1.4,
+		weightkg: 62,
+		color: "Red",
+		eggGroups: ["Field"],
+	},
 };
