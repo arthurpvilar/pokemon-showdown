@@ -49,3 +49,18 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field"],
 	},
 };
+
+// ---------------------------------------------------------------------------
+// O INSTANTANEO DOS NOSSOS IDS, e ele TEM de ser tirado aqui (goal 23).
+//
+// `sim/dex.ts:465` (`loadDataFile`) devolve `dataObject[dataType]` -- o objeto
+// que este modulo exporta, POR REFERENCIA --, e a mescla de `:717` escreve as
+// entradas herdadas DENTRO dele. Ou seja: depois do carregamento,
+// `Pokedex` deixou de ser "as nossas" e virou "as 1519". Conferido rodando: um
+// `Object.keys(Pokedex)` dentro do `init()` devolve o dex inteiro, comecando
+// pelas nossas duas.
+//
+// Este `Object.keys` roda no corpo do modulo, que e avaliado no `require` --
+// antes da mescla. E por isso que ele e a lista das nossas, e e por isso que
+// ele mora ao lado da tabela e nao no `scripts.ts`.
+export const IdsDoProjeto: readonly string[] = Object.freeze(Object.keys(Pokedex));
