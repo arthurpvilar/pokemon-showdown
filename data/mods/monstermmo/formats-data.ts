@@ -5,4 +5,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	spcferrax: {
 		tier: "OU",
 	},
+	spcpikachu: {
+		tier: "OU",
+	},
 };
